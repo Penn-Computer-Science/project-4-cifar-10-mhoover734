@@ -15,8 +15,8 @@ print("Tensorflow: ", tf.__version__, " Seaborn: ", sns.__version__)
 mnist = tf.keras.datasets.mnist
 
 #Create dataframe
-from tensorflow.keras.datasets import cifar10
-(x_train, y_train), (x_test, y_test) = cifar10.load_data()
+from tensorflow.keras.datasets import cifar100
+(x_train, y_train), (x_test, y_test) = cifar100.load_data()
 
 '''#Show number of examples
 sns.countplot(x=y_train)
@@ -45,8 +45,8 @@ x_test = x_test.astype('float32') / 255.0
 
 #Convert labels to be onehot, not sparse
 from keras.utils import to_categorical
-y_train = to_categorical(y_train, 10)
-y_test = to_categorical(y_test, 10)
+y_train = to_categorical(y_train, 100)
+y_test = to_categorical(y_test, 100)
 
 #Show an example from MNIST
 '''plt.imshow(x_train[random.randint(0, 59999)][:,:,0], cmap='gray')
@@ -54,7 +54,7 @@ plt.show()'''
 
 #
 batch_size = 128
-num_classes = 10
+num_classes = 100
 epochs = 5
 
 #Build the model (Dear god...)
